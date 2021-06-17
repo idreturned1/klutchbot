@@ -51,7 +51,7 @@ async def on_message(message):
         if random.randint(1, 2) == 2:
             await channel.send('{} {}'.format(message.author.mention, getQuote()))
         else:
-            await channel.send(random.choice(cencouragingMessages.find_one()["messages"]))
+            await channel.send("{} {}".format(random.choice(message.author.mention, cencouragingMessages.find_one()["messages"])))
 
     if any(word in msg for word in SHINONYMS):
         await channel.send(asciiArt[0])
